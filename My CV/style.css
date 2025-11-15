@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, #b6e0ff, #e4b5ff);
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 20px;
+    padding: 30px;
+}
+
+/* Header */
+.header {
+    grid-column: span 2;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.socials a {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.contact p {
+    margin: 4px 0;
+}
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar .tab {
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background: #fff4;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    font-weight: 600;
+    text-align: left;
+    transition: .2s;
+}
+
+.sidebar .tab.active {
+    background: linear-gradient(135deg, #9a5cff, #ff7ad6);
+    color: white;
+}
+
+/* Content */
+.content {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+/* Certificates */
+.cert-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.cert-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.cert-item p {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+/* Timeline Styling */
+.timeline {
+    margin-top: 20px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding-left: 30px;
+}
+
+.timeline-item .dot {
+    width: 12px;
+    height: 12px;
+    background: #ffdd67;
+    border-radius: 50%;
+    position: absolute;
+    left: -1px;
+    top: 5px;
+    box-shadow: 0 0 10px #ffdd67;
+}
+
+.timeline-item h3 {
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.timeline-item .time {
+    color: #9a5cff;
+    font-weight: 600;
+}
+
+.timeline-item p {
+    opacity: 0.85;
+    margin-top: 3px;
+    font-size: 15px;
+}
+
+/* Group of sub items inside a single timeline point */
+.sub-items {
+    border-left: 2px dashed rgba(255, 255, 255, 0.6); /* nét đứt */
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* khoảng cách giữa hai content */
+}
+
+/* Style riêng cho các content con */
+.content.sub {
+    margin: 0;
+}
+
+.sub-items .content h3 {
+    font-size: 18px;
+}
+
+.sub-items .content .time {
+    color: #9a5cff;
+}

@@ -1,0 +1,181 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: #a0e0ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .btn-add {
+            background: #4CAF50;
+        }
+
+        .btn-add:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        .btn-remove {
+            background: #f44336;
+        }
+
+        .btn-remove:hover {
+            background: #da190b;
+            transform: scale(1.05);
+        }
+
+        .tank {
+            position: relative;
+            width: min(900px, 100%);
+            height: 480px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            background: linear-gradient(to bottom, #7fd3ff, #006ca6);
+            box-shadow: 0 10px 30px rgba(5, 40, 80, 0.25), inset 0 6px 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .tank::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 70px;
+            background: linear-gradient(180deg, #cba36a, #a57a4a);
+            border-top-left-radius: 40% 40px;
+            border-top-right-radius: 40% 40px;
+            box-shadow: inset 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.85);
+            pointer-events: none;
+        }
+
+        @keyframes rise {
+            to { transform: translateY(-520px); opacity: 0; }
+        }
+
+        .fish {
+            position: absolute;
+            width: 150px;
+            height: 120px;
+            cursor: grab;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .fish:active {
+            cursor: grabbing;
+        }
+
+        .fish img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .fish-delete {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 24px;
+            height: 24px;
+            background: #f44336;
+            color: white;
+            border: 2px solid white;
+            border-radius: 50%;
+            font-size: 16px;
+            line-height: 20px;
+            text-align: center;
+            cursor: pointer;
+            display: none;
+            z-index: 10;
+        }
+
+        .fish:hover .fish-delete {
+            display: block;
+        }
+
+        .fish-delete:hover {
+            background: #da190b;
+            transform: scale(1.1);
+        }
+
+        .plant {
+            position: absolute;
+            bottom: 0;
+            width: 10px;
+            border-radius: 5px;
+        }
+
+        .seaweed {
+            position: absolute;
+            bottom: 0;
+            transform-origin: bottom center;
+        }
+
+        .seaweed-blade {
+            width: 12px;
+            height: 40px;
+            background: linear-gradient(to right, #0d5f1a, #1a8f2e, #0d5f1a);
+            border-radius: 6px 6px 2px 2px;
+            margin-bottom: 3px;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        .glare {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: radial-gradient(ellipse at 10% 10%, rgba(255, 255, 255, 0.12), transparent 35%);
+            pointer-events: none;
+        }
+
+        @media (max-width: 960px) {
+            .tank { height: 400px; }
+        }
+
+        @media (max-width: 600px) {
+            .tank { height: 300px; }
+            .fish { width: 120px; height: 96px; }
+            .controls { flex-direction: column; }
+        }
